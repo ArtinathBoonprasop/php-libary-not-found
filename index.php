@@ -6,7 +6,7 @@ $members = ['นาย อาทินาถ บุญประสพ (Developer
 ?>
 <!DOCTYPE html>
 <html lang="th">
-<head><meta charset="UTF-8"><title><?php echo $topic; ?></title></head>
+<head><meta charset="UTF-8"><titleหห><?php echo $topic; ?></title></head>
 <body>
   <h1><?php echo $topic; ?></h1>
   <p>ทีม: <?php echo $team; ?></p>
