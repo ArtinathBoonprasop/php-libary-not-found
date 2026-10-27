@@ -1,0 +1,365 @@
+
+/* ตั้งค่าพื้นฐาน */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Tahoma, Arial, sans-serif;
+    background: #101010;
+    color: #f5f5f5;
+    padding: 24px;
+}
+
+.dashboard {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ส่วนหัว */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.header h1 {
+    font-size: 25px;
+    transition: color 0.3s ease;
+}
+
+.header h1:hover {
+    color: #60a5fa;
+}
+
+.header p {
+    color: #999;
+    margin-top: 8px;
+    font-size: 13px;
+}
+
+.date {
+    color: #bbb;
+    font-size: 13px;
+}
+
+/* การ์ดสถิติ */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.stat-card {
+    background: #191919;
+    border: 1px solid #303030;
+    border-radius: 12px;
+    padding: 22px;
+    transition: transform 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-7px);
+    border-color: #60a5fa;
+    box-shadow: 0 8px 25px rgba(96, 165, 250, 0.15);
+}
+
+.stat-card .label {
+    color: #aaa;
+    font-size: 13px;
+}
+
+.stat-card h2 {
+    font-size: 28px;
+    margin: 12px 0 8px;
+}
+
+.description {
+    color: #888;
+    font-size: 12px;
+}
+
+.blue {
+    color: #60a5fa;
+}
+
+.orange {
+    color: #fbbf24;
+}
+
+.green {
+    color: #4ade80;
+}
+
+.purple {
+    color: #c4b5fd;
+}
+
+/* กล่องรายการ */
+.panel {
+    background: #191919;
+    border: 1px solid #303030;
+    border-radius: 12px;
+    padding: 22px;
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.panel:hover {
+    border-color: #555;
+    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.04);
+}
+
+.panel h3 {
+    font-size: 17px;
+    margin-bottom: 18px;
+}
+
+/* ตาราง */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    min-width: 650px;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 14px 12px;
+    border-bottom: 1px solid #303030;
+    font-size: 13px;
+}
+
+th {
+    color: #999;
+    font-weight: normal;
+}
+
+td {
+    color: #e5e5e5;
+}
+
+tbody tr {
+    transition: background-color 0.25s ease;
+}
+
+tbody tr:hover {
+    background-color: #292929;
+}
+
+tbody tr:hover td {
+    color: #fff;
+}
+
+/* ป้ายสถานะ */
+.status {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 11px;
+    transition: transform 0.25s ease;
+}
+
+.status:hover {
+    transform: scale(1.08);
+}
+
+.normal {
+    background: #173b2a;
+    color: #4ade80;
+}
+
+.overdue {
+    background: #451a1a;
+    color: #f87171;
+}
+
+/* กล่องแจ้งเตือน */
+.alert {
+    background: #211717;
+    border: 1px solid #633333;
+    border-radius: 10px;
+    padding: 16px;
+    transition: border-color 0.3s ease,
+                transform 0.3s ease;
+}
+
+.alert:hover {
+    border-color: #f87171;
+    transform: translateY(-3px);
+}
+
+.alert h3 {
+    color: #f87171;
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.alert p {
+    color: #ddd;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* ส่วนท้าย */
+.footer {
+    text-align: center;
+    color: #777;
+    font-size: 12px;
+    padding: 20px 12px;
+}
+
+/* รองรับแท็บเล็ต */
+@media (max-width: 800px) {
+    .stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    body {
+        padding: 14px;
+    }
+
+    .stat-card {
+        padding: 16px;
+    }
+
+    .stat-card h2 {
+        font-size: 23px;
+    }
+}
+
+/* รองรับโทรศัพท์ */
+@media (max-width: 420px) {
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .header h1 {
+        font-size: 21px;
+    }
+}
+
+/* ลดการเคลื่อนไหวตามการตั้งค่าของผู้ใช้ */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* ==============================
+   Smooth Hover Animation
+============================== */
+
+/* ตั้งค่าการเคลื่อนไหวให้สมูท */
+.stat-card,
+.panel,
+.alert,
+.status,
+.header h1,
+tbody tr {
+    transition:
+        transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.4s ease,
+        border-color 0.4s ease,
+        background-color 0.4s ease,
+        color 0.3s ease;
+}
+
+/* การ์ดสถิติ */
+.stat-card {
+    will-change: transform;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    border-color: #60a5fa;
+    box-shadow: 0 12px 30px rgba(96, 165, 250, 0.12);
+}
+
+/* กล่องรายการ */
+.panel:hover {
+    border-color: #484848;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+/* แถวในตาราง */
+tbody tr:hover {
+    background-color: #262626;
+}
+
+/* ป้ายสถานะ */
+.status {
+    transition:
+        transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 0.3s ease;
+}
+
+.status:hover {
+    transform: scale(1.04);
+    filter: brightness(1.12);
+}
+
+/* กล่องแจ้งเตือน */
+.alert:hover {
+    border-color: #f87171;
+    box-shadow: 0 8px 24px rgba(248, 113, 113, 0.08);
+}
+
+/* ชื่อ Dashboard */
+.header h1:hover {
+    color: #60a5fa;
+}
+
+/* ป้องกันแอนิเมชันรบกวนผู้ใช้ที่ต้องการลดการเคลื่อนไหว */
+@media (prefers-reduced-motion: reduce) {
+    .stat-card,
+    .panel,
+    .alert,
+    .status,
+    .header h1,
+    tbody tr {
+        transition: none !important;
+    }
+
+    .stat-card:hover,
+    .status:hover {
+        transform: none;
+    }
+}
+.status {
+    transition: filter 0.2s ease;
+}
+
+.status:hover {
+    filter: brightness(1.2);
+}
+/* เอฟเฟกต์เฉพาะตอนเอาเมาส์ชี้ป้ายสถานะ */
+.status,
+.status.normal,
+.status.overdue {
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.status:hover,
+.status.normal:hover,
+.status.overdue:hover {
+    transform: scale(1.1);
+    filter: brightness(1.4);
+    cursor: pointer;
+}
